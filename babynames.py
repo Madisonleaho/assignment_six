@@ -25,10 +25,17 @@ def add_data_for_name(name_data, year, rank, name):
     >>> name_data
     {'Nick': {2000: 10}, 'Sonja': {2000: 200}}
     """
-    pass
     """
     You fill this in.  Don't forget to remove the 'pass' statement above.
     """
+    if name not in name_data:
+        name_data['name'] = {}
+    if name not in name_data and year not in name_data:
+        name_data['name'][year] = rank
+    current_rank = name_data['name'][year]
+    if rank < current_rank:
+        name_data['name'][year] = rank
+
 
 
 def add_file(name_data, filename):
