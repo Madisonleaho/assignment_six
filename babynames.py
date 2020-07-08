@@ -60,11 +60,12 @@ def add_file(name_data, filename):
     >>> name_data
     {'A': {2000: 1, 2010: 2}, 'B': {2000: 1}, 'C': {2000: 2, 2010: 1}, 'D': {2010: 1}, 'E': {2010: 2}}
     """
-    pass
     """
     You fill this in.  Don't forget to remove the 'pass' statement above.
     """
-
+    with open(filename) as f:
+        year = int(f.readline())
+        lines = f.readlines
 
 def read_files(filenames):
     """
