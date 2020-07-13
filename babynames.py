@@ -92,10 +92,15 @@ def read_files(filenames):
     Returns:
         name_data (dictionary): the dictionary storing all baby name data in a structured manner
     """
-    pass
     """
     You fill this in.  Don't forget to remove the 'pass' statement above.
     """
+    name_data = {}
+    for filename in filenames:
+        add_file(name_data, filename)
+    return name_data
+
+
 
 
 def search_names(name_data, target):
@@ -112,10 +117,12 @@ def search_names(name_data, target):
         matching_names (List[str]): a list of all names from name_data that contain
                                     the target string
     """
-    pass
     """
     You fill this in.  Don't forget to remove the 'pass' statement above.
     """
+    return [name for name in name_data if target.upper() in name.upper()]
+
+
 
 
 def print_names(name_data):
