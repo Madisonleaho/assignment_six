@@ -29,12 +29,12 @@ def add_data_for_name(name_data, year, rank, name):
     You fill this in.  Don't forget to remove the 'pass' statement above.
     """
     if name not in name_data:
-        name_data['name'] = {}
-    if name not in name_data and year not in name_data:
-        name_data['name'][year] = rank
-    current_rank = name_data['name'][year]
+        name_data[name] = {}
+    if name not in name_data or year not in name_data[name]:
+        name_data[name][year] = rank
+    current_rank = name_data[name][year]
     if rank < current_rank:
-        name_data['name'][year] = rank
+        name_data[name][year] = rank
 
 
 
@@ -71,7 +71,7 @@ def add_file(name_data, filename):
         stripped_line = line.strip()
         string_line = stripped_line.split(',')
         cleaned_line = [string.strip() for string in string_line]
-        rank = int[cleaned_line[0]]
+        rank = int(cleaned_line[0])
         boy_name = cleaned_line[1]
         girl_name = cleaned_line[2]
         add_data_for_name(name_data, year, rank, boy_name)
