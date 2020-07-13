@@ -1,4 +1,4 @@
-"""
+""""
 File: data_analysis.py
 ----------------------
 This program read in data on cumulative infections of a disease
@@ -18,10 +18,18 @@ def load_data(filename):
     >>> load_data('disease1.txt')
     {'Evermore': [1, 1, 1, 1, 1, 1, 1], 'Vanguard City': [1, 2, 3, 4, 5, 6, 7], 'Excelsior': [1, 1, 2, 3, 5, 8, 13]}
     """
-    pass
     """
     You fill this in.  Don't forget to remove the 'pass' statement above.
     """
+    with open(filename) as f:
+        lines = f.readlines()
+    cases_dict = {}
+    for line in lines:
+        stripped_line = line.strip()
+        string_list = stripped_line.split(',')
+        cleaned_list = [string_list.strip() for string in string_list]
+        cases_dict[cleaned_list[0]] = [int(value) for value in (cleaned_list[1:])]
+    return cases_dict
 
 
 def daily_cases(cumulative):
@@ -38,10 +46,10 @@ def daily_cases(cumulative):
     >>> daily_cases({'Evermore': [1, 1, 1, 1, 1, 1, 1], 'Vanguard City': [1, 2, 3, 4, 5, 6, 7], 'Excelsior': [1, 1, 2, 3, 5, 8, 13]})
     {'Evermore': [1, 0, 0, 0, 0, 0, 0], 'Vanguard City': [1, 1, 1, 1, 1, 1, 1], 'Excelsior': [1, 0, 1, 1, 2, 3, 5]}
     """
-    pass
     """
     You fill this in.  Don't forget to remove the 'pass' statement above.
     """
+    
 
 
 def main():

@@ -38,6 +38,7 @@ def add_data_for_name(name_data, year, rank, name):
 
 
 
+
 def add_file(name_data, filename):
     """
     Reads the information from the specified file and populates the name_data
@@ -65,7 +66,20 @@ def add_file(name_data, filename):
     """
     with open(filename) as f:
         year = int(f.readline())
-        lines = f.readlines
+        lines = f.readlines()
+    for line in lines:
+        stripped_line = line.strip()
+        string_line = stripped_line.split(',')
+        cleaned_line = [string.strip() for string in string_line]
+        rank = int[cleaned_line[0]]
+        boy_name = cleaned_line[1]
+        girl_name = cleaned_line[2]
+        add_data_for_name(name_data, year, rank, boy_name)
+        add_data_for_name(name_data, year, rank, girl_name)
+
+
+
+
 
 def read_files(filenames):
     """
